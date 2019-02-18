@@ -2,6 +2,7 @@ package utils
 
 import (
 	"errors"
+	"fmt"
 
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
@@ -41,13 +42,11 @@ func InsertSupplyer(unit m.Supply) error {
 }
 
 // DeleteSupplyer - Delete Unit
-func DeleteSupplyer(data m.Stock) error {
-	//cData, err := FindAllStockBySerial(data.Serial)
-	//	if err != nil {
-	//	return err
-	//	}
-	//coll.Remove(bson.M{"nm": "Stewart Copeland"})
-	err := SupplyerCollection.Remove(bson.M{"serial": data.Serial})
+func DeleteSupplyer(data m.Supply) error {
+	err := SupplyerCollection.Remove(&data)
+	if err != nil {
+		fmt.Print(err)
+	}
 	return err
 }
 
