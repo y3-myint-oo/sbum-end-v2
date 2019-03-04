@@ -1,0 +1,7 @@
+FROM golang:alpine
+RUN mkdir -p /usr/local/go/src/ymo.me/sbum-end-v2/
+ADD . /usr/local/go/src/ymo.me/sbum-end-v2/
+WORKDIR /usr/local/go/src/ymo.me/sbum-end-v2
+RUN apk add --no-cache git && go get github.com/gin-contrib/cors && go get github.com/gin-gonic/gin && go get github.com/pkg/errors && go get gopkg.in/mgo.v2 && go get gopkg.in/mgo.v2/bson 
+RUN go build -o main .
+CMD ["./main"]

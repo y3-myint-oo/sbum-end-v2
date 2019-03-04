@@ -37,6 +37,7 @@ func createStock(context *gin.Context) {
 func fetchAllStock(context *gin.Context) {
 	context.Header("Content-Type", "application/json")
 	datas, err := u.FindAllStock()
+	fmt.Println(" Stock Datas ", datas)
 	if err != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{
 			"status":  http.StatusInternalServerError,

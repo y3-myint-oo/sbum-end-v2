@@ -10,4 +10,5 @@ type Supply struct {
 	Phone    string        `json:"phone"`
 	Division string        `json:"division"`
 	Note     string        `json:"note"`
+	Network  string        `json:"network"`
 }

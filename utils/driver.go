@@ -7,13 +7,14 @@ import (
 var session *mgo.Session
 
 const (
-	DTATBASE = "test002"
+	DTATBASE = "test003"
 )
 
 var DB *mgo.Database
 
 // InitDriver - Init the MongoDb Connection
 func InitDriver() error {
+	//mongodb://mongo:27018
 	session, err := mgo.Dial("127.0.0.1")
 	if err != nil {
 		panic(err)
